@@ -19,10 +19,24 @@ function searchTerm(query) {
     });
 }
 
-searchTerm('steak');
-
+// searchTerm('steak');
 
 // Get all items paginated
+// takes one parameter which will be a number. Function will query the shopping_list table using knex methods and select the pageNumber page of rows paginated to 6 items per page
+function pageNumber(number) {
+  const productsPerPage = 6;
+  const offset = productsPerPage * (number - 1);
+  knexInstance
+    .select('*')
+    .from('shopping_list')
+    .limit(productsPerPage)
+    .offset(offset)
+    .then((result) => {
+      console.log(result);
+    });
+}
+
+pageNumber(1);
 
 // Get all items added after Date
 
