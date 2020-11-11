@@ -1,10 +1,10 @@
 'use strict';
-
+require('dotenv').config()
 const knex = require('knex');
 
 const knexInstance = knex({
   client: 'pg',
-  connection: 'postgresql://dunder_mifflin@localhost/knex-practice',
+  connection: process.env.DB_URL,
 });
 
 // Get all items that contain text
@@ -39,7 +39,7 @@ function searchByPage(pageNumber) {
 // searchByPage(1);
 
 // Get all items added after Date
-// take one parameter which will be a number representing a number of days. function will query the shopping_list table using knex methods and select the rows which have a date_added that is greater than daysAgo
+// take one parameter which will be a number representing a number of days. Function will query the shopping_list table using knex methods and select the rows which have a date_added that is greater than daysAgo
 function searchItemsAfterDate(daysAgo) {
   knexInstance
     .select('*')
@@ -57,3 +57,17 @@ function searchItemsAfterDate(daysAgo) {
 searchItemsAfterDate(1);
 
 // get the total cost for each category
+// take no parameters. Function will query the shopping_list table and select the rows grouped by their category and showing the total price for each category
+function findTotalCost() {
+  knexInstance
+    .select('category')
+    .sum('price')
+    .from('shopping_list')
+    .groupBy('category')
+    .then((result) => {
+      console.log('Total Prices');
+      console.log(result);
+    });
+}
+
+findTotalCost();
