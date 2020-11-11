@@ -12,6 +12,22 @@ Personal reference repo for manipulating data in a database using Knex and Postg
 5. Edit the existing `PATH` variable by appending `%POSTGRES_DIR%\bin`.
 6. Set up `pgpass.conf` (tells the Postgres client what password to use when attempting to connect to our local server as the postgres) and `pg_hba.conf` files. 
 
+## Setting up Knex.js with PostgreSQL
+
+[Knex.js](http://knexjs.org/) is a SQL query builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, and Amazon Redshift.
+1. Run `npm install knex --save`
+2. Run `npm install pg`
+3. Initialize the library inside file:
+``` javascript 
+require('dotenv').config();
+const knex = require('knex');
+
+const knexInstance = knex({
+  client: 'pg',
+  connection: process.env.DATABASE_URL,
+});
+```
+
 ## Running PostgreSQL
 
 1. Open command prompt and run `pg_ctl start`
@@ -30,8 +46,8 @@ Personal reference repo for manipulating data in a database using Knex and Postg
 
 ## Resources
 
-[Knex.js](http://knexjs.org/)
-[Knex CheatSheet](https://devhints.io/knex)
-[PostgreSQL 13.0 Documentation](https://www.postgresql.org/docs/13/index.html)
-[PostgreSQL tutorial cheat-sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/)
-[PostgreSQL cheat sheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546)
+- [Knex.js](http://knexjs.org/)
+- [Knex CheatSheet](https://devhints.io/knex)
+- [PostgreSQL 13.0 Documentation](https://www.postgresql.org/docs/13/index.html)
+- [PostgreSQL tutorial cheat-sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/)
+- [PostgreSQL cheat sheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546)
