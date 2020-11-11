@@ -15,6 +15,7 @@ function searchByName(searchTerm) {
     .from('shopping_list')
     .where('product_name', 'ILIKE', `%${searchTerm}%`)
     .then((result) => {
+      console.log('SEARCH TERM', { searchTerm })
       console.log(result);
     });
 }
@@ -32,6 +33,7 @@ function searchByPage(pageNumber) {
     .limit(productsPerPage)
     .offset(offset)
     .then((result) => {
+      console.log('PAGINATE ITEMS', { page })
       console.log(result);
     });
 }
@@ -50,6 +52,7 @@ function searchItemsAfterDate(daysAgo) {
       knexInstance.raw(`now() - '${daysAgo} days'::INTERVAL`)
     )
     .then((result) => {
+      console.log('PRODUCTS ADDED DAYS AGO')
       console.log(result);
     });
 }
@@ -65,7 +68,7 @@ function findTotalCost() {
     .from('shopping_list')
     .groupBy('category')
     .then((result) => {
-      console.log('Total Prices');
+      console.log('COST PER CETEGORY');
       console.log(result);
     });
 }

@@ -1,5 +1,5 @@
 {
-  "name": "express-boilerplate",
+  "name": "will-sql-practice",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "deploy": "git push heroku master"
   },
   "keywords": [],
-  "author": "",
+  "author": "williamwdev",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
