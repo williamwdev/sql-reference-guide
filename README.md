@@ -43,6 +43,142 @@ const knexInstance = knex({
 5. Create your `.env` file to store your local settings
 6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
 
+## SQL Review
+
+SQL (Structured Query Language) is a language designed to manage data in a RDBMS (Relational Database Management System).
+
+Database Related Commands
+1. `SHOW DATABASES;` to see currently available databases
+2. `CREATE DATABASE <database_name>;` to create a new database
+3. `USE <database_name>;` to select a database to use
+4. `SOURCE <path_of_.sql_file>;` to import SQL commands from .sql file
+5. `DROP DATABASE <database_name>;` to delete a database
+
+Table Related Commands
+1. `SHOW TABLES` to see currently available tables in a database
+2. To create a new table:
+```sql
+CREATE TABLE <table_name1> (
+    <col_name1> <col_type1>, 
+    <col_name2> <col_type2>, 
+    <col_name3> <col_type3>
+    PRIMARY KEY (<col_name1>),
+    FOREIGN KEY (<col_name2>) REFERENCES <table_name2>(<col_name2>)
+);
+```
+Integrity contraints in CREATE TABLE
+- NOT NULL
+- PRIMARY KEY (col_name1, col_name2,...)
+- FOREIGN KEY (col_namex1, …, col_namexn) REFERENCES table_name(col_namex1, …, col_namexn)
+3. `DESCRIBE <table_name>;` to describe columns of a table
+4. Insert into a table
+```sql
+INSERT INTO <table_name> (<col_name1>, <col_name2>, <col_name3>, …)
+    VALUES (<value1>, <value2>, <value3>, …);
+```
+5. Update a table
+```sql
+UPDATE <table_name>
+    SET <col_name1> = <value1>, <col_name2> = <value2>, ...
+    WHERE <condition>;
+```
+6. Delete all contents of a table
+`DELETE FROM <table_name>;`
+7. Delete a table
+`DROP TABLE <table_name>;`
+
+Querying Related Commands
+1. SELECT
+```sql
+SELECT <col_name1>, <col_name2>, …
+     FROM <table_name>;
+```
+2. SELECT DISTINCT
+```sql
+SELECT DISTINCT <col_name1>, <col_name2>, …
+     FROM <table_name>;
+```
+3. WHERE
+```sql
+SELECT <col_name1>, <col_name2>, …
+     FROM <table_name>
+     WHERE <condition>;
+```
+4. GROUP BY (often used with aggregate functions such as COUNT, MAX, MIN, SUM and AVG to group the result-set)
+```sql
+SELECT <col_name1>, <col_name2>, …
+     FROM <table_name>
+     GROUP BY <col_namex>;
+```
+5. HAVING
+```sql
+SELECT <col_name1>, <col_name2>, ...
+    FROM <table_name>
+    GROUP BY <column_namex>
+    HAVING <condition>
+```
+6. ORDER BY (sort a result set in ascending or descending order)
+```sql
+SELECT <col_name1>, <col_name2>, …
+FROM <table_name>
+ORDER BY <col_name1>, <col_name2>, … ASC|DESC;
+```
+7. BETWEEN (used to select data within a given range)
+```sql
+SELECT <col_name1>, <col_name2>, …
+    FROM <table_name>
+    WHERE <col_namex> BETWEEN <value1> AND <value2>;
+```
+8. LIKE (used in a WHERE clause to search for a specified pattern in text)
+- % (Zero, one, or multiple characters)
+- _(A single character)
+```sql
+SELECT <col_name1>, <col_name2>, …
+    FROM <table_name>
+    WHERE <col_namex> LIKE <pattern>;
+```
+9. IN (allow multiple values within a WHERE clause)
+```sql
+SELECT <col_name1>, <col_name2>, …
+    FROM <table_name>
+    WHERE <col_namen> IN (<value1>, <value2>, …);
+```
+10. JOIN (used to combine values of two or more tables based on common attributes within them)
+![Join Image](/images/join_image.png)
+```sql
+SELECT <col_name1>, <col_name2>, …
+    FROM <table_name1>
+    JOIN <table_name2> 
+    ON <table_name1.col_namex> = <table2.col_namex>;
+```
+11. Views (virtual SQL tables created using a result set of a statement)
+```sql
+CREATE VIEW <view_name> AS
+    SELECT <col_name1>, <col_name2>, …
+    FROM <table_name>
+    WHERE <condition>;
+```
+```sql
+DROP VIEW <view_name>;
+```
+12. Aggregate Functions
+- COUNT(col_name) — Returns the number of rows
+- SUM(col_name) — Returns the sum of the values in a given column
+- AVG (col_name)— Returns the average of the values of a given column
+- MIN(col_name) — Returns the smallest value of a given column
+- MAX(col_name) — Returns the largest value of a given column
+13. Nested Subqueries (SQL queries which include a SELECT-FROM-WHERE expression that is nested within another query)
+```sql
+SELECT DISTINCT course_id 
+    FROM section 
+    WHERE semester = ‘Fall’ AND year= 2009 AND course_id IN (
+        SELECT course_id 
+            FROM section 
+            WHERE semester = ‘Spring’ AND year= 2010
+    );
+```
+
+
 
 ## Resources
 
@@ -51,3 +187,5 @@ const knexInstance = knex({
 - [PostgreSQL 13.0 Documentation](https://www.postgresql.org/docs/13/index.html)
 - [PostgreSQL tutorial cheat-sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/)
 - [PostgreSQL cheat sheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546)
+- [PostgreSQL Exercises](https://pgexercises.com/)
+- [SQL Cheat Sheet](https://towardsdatascience.com/sql-cheat-sheet-for-interviews-6e5981fa797b)
