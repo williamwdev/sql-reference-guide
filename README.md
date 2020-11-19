@@ -178,6 +178,26 @@ SELECT DISTINCT course_id
     );
 ```
 
+## Additional SQL Concepts
+- `LIKE` can be used with wildcards such as `%` and `_` to match various characters.
+- Aggregate functions take multiple rows of data and combine them into one number
+- `COUNT` is one of the most widely-used aggregate function `SELECT COUNT(col_name) FROM table`
+- Null is the value of an empty entry. `SELECT (0 IS NOT NULL) AND ('' IS NOT NULL)`
+- `COUNT(*)` counts rows as long as ANY one of their columns is non-null. `SELECT COUNT(*) FROM table`
+- `CASE WHEN` block acts as a big if-else statement
+```sql
+CASE
+    WHEN <clause> THEN <result>
+    WHEN <clause> THEN <result>
+    ...
+    ELSE <result>
+END
+```
+- `SELECT DISTINCT` returns unique entries (no duplication)
+- `GROUP BY` allows us to split up the dataset and apply aggregate functions within each group, resulting in one row per group
+- `HAVING` is useful for filtering result of grouping and aggregration
+
+
 ## Additional Resources
 
 ### Knex Related Resources
@@ -202,7 +222,7 @@ SELECT DISTINCT course_id
 - [GalaXQL](http://sol.gfxile.net/galaxql.html)
 - [Mode SQL tutorial](https://mode.com/sql-tutorial/)
 - [Datacamp intro to SQL](https://www.datacamp.com/courses/introduction-to-sql)
-- [Select Star SQL](https://selectstarsql.com/)
+- [Select Star SQL](https://selectstarsql.com/) - Great resource for interactive learning
 - [SQL Murder Mystery](http://mystery.knightlab.com/walkthrough.html)
 - [SQLcourse](http://www.sqlcourse.com/)
 - [SQLcourse 2](http://www.sqlcourse2.com/)
@@ -213,6 +233,9 @@ SELECT DISTINCT course_id
 - [Studybyyourself](http://studybyyourself.com/seminar/sql/course/?lang=en)
 - [Stratascratch](https://www.stratascratch.com/)
 - [Sololearn](https://www.sololearn.com/Course/SQL/)
+- [w3school](https://www.w3schools.com/sql/default.asp)
+- [SQLite](https://sqlite.org/index.html)
+
 
 
 
