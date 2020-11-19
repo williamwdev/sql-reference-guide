@@ -1,6 +1,7 @@
-# Postgres & Knex Reference and Practice
+# Postgres, Knex and SQL Reference and Practice Guide
 
-Personal reference repo for manipulating data in a database using Knex and PostgreSQL
+Personal reference repo for manipulating data in a database using Knex and PostgreSQL. 
+Resources and review for SQL.
 
 ## Setting up PostgreSQL
 
@@ -196,7 +197,7 @@ END
 - `SELECT DISTINCT` returns unique entries (no duplication)
 - `GROUP BY` allows us to split up the dataset and apply aggregate functions within each group, resulting in one row per group
 - `HAVING` is useful for filtering result of grouping and aggregration
-
+- `JOINS` are used to create an augmented table because the original didn't contain the information we needed
 
 ## Additional Resources
 
