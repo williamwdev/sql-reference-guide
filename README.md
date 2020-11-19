@@ -178,14 +178,45 @@ SELECT DISTINCT course_id
     );
 ```
 
+## Additional Resources
 
-
-## Resources
-
+### Knex Related Resources
 - [Knex.js](http://knexjs.org/)
 - [Knex CheatSheet](https://devhints.io/knex)
+
+### PostgreSQL Related Resources
 - [PostgreSQL 13.0 Documentation](https://www.postgresql.org/docs/13/index.html)
+- [PostgreSQL Tutorial](https://www.postgresqltutorial.com/)
 - [PostgreSQL tutorial cheat-sheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/)
 - [PostgreSQL cheat sheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546)
 - [PostgreSQL Exercises](https://pgexercises.com/)
+- [PostgreSQL Tutorialspoint](https://www.tutorialspoint.com/postgresql/index.htm)
+
+### SQL Related Resources
+
 - [SQL Cheat Sheet](https://towardsdatascience.com/sql-cheat-sheet-for-interviews-6e5981fa797b)
+- [SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial)
+- [WebDevSimplified SQL](https://github.com/WebDevSimplified/Learn-SQL)
+- [SQL Database Programming eBook](https://github.com/PacktPublishing/learn-sql-database-programming)
+- [SQLBolt](https://sqlbolt.com/)
+- [GalaXQL](http://sol.gfxile.net/galaxql.html)
+- [Mode SQL tutorial](https://mode.com/sql-tutorial/)
+- [Datacamp intro to SQL](https://www.datacamp.com/courses/introduction-to-sql)
+- [Select Star SQL](https://selectstarsql.com/)
+- [SQL Murder Mystery](http://mystery.knightlab.com/walkthrough.html)
+- [SQLcourse](http://www.sqlcourse.com/)
+- [SQLcourse 2](http://www.sqlcourse2.com/)
+- [Codeacademy](https://www.codecademy.com/learn/learn-sql)
+- [SQL tutorial](http://www.sql-tutorial.ru/en/content.html)
+- [Kaggle SQL](https://www.kaggle.com/learn/intro-to-sql)
+- [Kaggle Advanced SQL](https://www.kaggle.com/learn/advanced-sql)
+- [Studybyyourself](http://studybyyourself.com/seminar/sql/course/?lang=en)
+- [Stratascratch](https://www.stratascratch.com/)
+- [Sololearn](https://www.sololearn.com/Course/SQL/)
+
+
+
+
+
+
+
