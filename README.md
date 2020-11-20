@@ -215,15 +215,15 @@ END
 
 ### SQL Related Resources
 
+- [SQLBolt](https://sqlbolt.com/) - One of the better interactive interfaces for learning and practicing in browser
+- [Select Star SQL](https://selectstarsql.com/) - Great resource for interactive learning
 - [SQL Cheat Sheet](https://towardsdatascience.com/sql-cheat-sheet-for-interviews-6e5981fa797b)
 - [SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial)
 - [WebDevSimplified SQL](https://github.com/WebDevSimplified/Learn-SQL)
 - [SQL Database Programming eBook](https://github.com/PacktPublishing/learn-sql-database-programming)
-- [SQLBolt](https://sqlbolt.com/)
 - [GalaXQL](http://sol.gfxile.net/galaxql.html)
 - [Mode SQL tutorial](https://mode.com/sql-tutorial/)
 - [Datacamp intro to SQL](https://www.datacamp.com/courses/introduction-to-sql)
-- [Select Star SQL](https://selectstarsql.com/) - Great resource for interactive learning
 - [SQL Murder Mystery](http://mystery.knightlab.com/walkthrough.html)
 - [SQLcourse](http://www.sqlcourse.com/)
 - [SQLcourse 2](http://www.sqlcourse2.com/)
