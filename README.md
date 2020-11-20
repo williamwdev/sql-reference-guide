@@ -197,7 +197,52 @@ END
 - `SELECT DISTINCT` returns unique entries (no duplication)
 - `GROUP BY` allows us to split up the dataset and apply aggregate functions within each group, resulting in one row per group
 - `HAVING` is useful for filtering result of grouping and aggregration
-- `JOINS` are used to create an augmented table because the original didn't contain the information we needed
+- `JOINS` are used to create an augmented table because the original didn't contain the information we needed.
+```sql
+SELECT column, another_table_column, …
+FROM mytable
+INNER JOIN another_table 
+    ON mytable.id = another_table.id
+WHERE condition(s)
+ORDER BY column, … ASC/DESC
+LIMIT num_limit OFFSET num_offset;
+```
+- `INNER JOIN` is a process that matches rows from the first table and second table which have the same key (as defined by the ON constraint) to create a result row with the combined columns from both tables. `INNER JOIN` and `JOIN` are equivalent
+- `OUTER JOIN` is used when two tables have asymmetric data to ensure that the data you need is not left out of the results
+```sql
+SELECT column, another_column, …
+FROM mytable
+INNER/LEFT/RIGHT/FULL JOIN another_table 
+    ON mytable.id = another_table.matching_id
+WHERE condition(s)
+ORDER BY column, … ASC/DESC
+LIMIT num_limit OFFSET num_offset;
+```
+- When joining table A to table B:
+- `LEFT JOIN` simply includes rows from A regardless of whether a matching row is found in B
+- `RIGHT JOIN` is the same, but reversed, keeping rows in B regardless of whether a match is found in A
+- `FULL JOIN` simply means that rows from both tables are kept, regardless of whether a matching row exists in the other table
+- When using any of the above joins, you need to account and deal with `NULL` in the result and constraints
+- When outer-joining two tables with asymmetric data, you can test a column for `NULL` values in a `WHERE` clause by using either the `IS NULL` or `IS NOT NULL` constraint
+```sql
+SELECT column, another_column, …
+FROM mytable
+WHERE column IS/IS NOT NULL
+AND/OR another_condition
+AND/OR …;
+```
+- `AS` keyword is used to give descriptive alias to expressions used in the `SELECT` part of the query
+```sql
+SELECT col_expression AS expr_description, …
+FROM mytable;
+```
+- Additionally, regular columns and tables can also have aliases to make them easier to reference in the output and helps in simplifying more complex queries
+```sql
+SELECT column AS better_column_name, …
+FROM a_long_widgets_table_name AS mywidgets
+INNER JOIN widget_sales
+  ON mywidgets.id = widget_sales.widget_id;
+```
 
 ## Additional Resources
 
