@@ -243,6 +243,33 @@ FROM a_long_widgets_table_name AS mywidgets
 INNER JOIN widget_sales
   ON mywidgets.id = widget_sales.widget_id;
 ```
+- Query with aggregate functions over all the rows
+```sql
+SELECT AGG_FUNC(column_or_expression) AS aggregate_description, …
+FROM mytable
+WHERE constraint_expression;
+```
+- Common aggregate functions
+1. `COUNT(*), COUNT(column)` = Common function used to count the number of rows in the group if no column name is specified. Otherwise, count the number of rows in the group with non-NULL values in the specified column
+2. `MIN(column)` = Finds the smallest numerical value in the specified column for all rows in the group
+3. `MAX(column` = Finds the largest numerical value in the specified column for all rows in the group
+4. `AVG(column)` = Finds the average numerical value in the specified column for all rows in the group
+5. `SUM(column)` = Finds the sum of all numerical values in the specified column for the rows in the group
+- Grouped aggregate functions
+```sql
+SELECT AGG_FUNC(column_or_expression) AS aggregate_description, …
+FROM mytable
+WHERE constraint_expression
+GROUP BY column;
+```
+- `HAVING` clause is used specifically with the `GROUP BY` clause to allow us to filter grouped rows from the result set
+```sql
+SELECT group_by_column, AGG_FUNC(column_expression) AS aggregate_result_alias, …
+FROM mytable
+WHERE condition
+GROUP BY column
+HAVING group_condition;
+```
 
 ## Additional Resources
 
