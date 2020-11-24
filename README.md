@@ -46,7 +46,14 @@ const knexInstance = knex({
 
 ## SQL Review
 
-SQL (Structured Query Language) is a language designed to manage data in a RDBMS (Relational Database Management System).
+- SQL (Structured Query Language) is a language designed to manage data in a RDBMS (Relational Database Management System). Allows us to interact with relational databases and tables in a way to glean specific and meaningful information
+- Relational databases are systems for managing information and are made up of tables. Each column in the table has a name and a data type, and each row in the table is a specific instance of whatever the table is about.
+- ERD (Entity Relationship Diagram) is a visual representation of the relationships among all relevant tables within a database
+- Primary Key = unique identifier for each row in a table
+- Foreign key = used to reference data in one table to those in another table
+- Queries are statements constructed to get data from the database
+- Most common kind of `JOIN` is the `INNER JOIN` and the most common way to join tables is using primary key and foreign key columns
+- You can do joins on any columns, but the key columns are optimized for fast results
 
 **Database Related Commands**
 1. `SHOW DATABASES;` to see currently available databases
@@ -393,6 +400,7 @@ DROP TABLE IF EXISTS mytable;
 
 - [SQLBolt](https://sqlbolt.com/) - One of the better interactive interfaces for learning and practicing in browser
 - [Select Star SQL](https://selectstarsql.com/) - Great resource for interactive learning
+- [SQL Murder Mystery](http://mystery.knightlab.com/walkthrough.html) - Amazing walkthrough 
 - [SQL Cheat Sheet](https://towardsdatascience.com/sql-cheat-sheet-for-interviews-6e5981fa797b)
 - [SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial)
 - [WebDevSimplified SQL](https://github.com/WebDevSimplified/Learn-SQL)
@@ -400,7 +408,6 @@ DROP TABLE IF EXISTS mytable;
 - [GalaXQL](http://sol.gfxile.net/galaxql.html)
 - [Mode SQL tutorial](https://mode.com/sql-tutorial/)
 - [Datacamp intro to SQL](https://www.datacamp.com/courses/introduction-to-sql)
-- [SQL Murder Mystery](http://mystery.knightlab.com/walkthrough.html)
 - [SQLcourse](http://www.sqlcourse.com/)
 - [SQLcourse 2](http://www.sqlcourse2.com/)
 - [Codeacademy](https://www.codecademy.com/learn/learn-sql)
