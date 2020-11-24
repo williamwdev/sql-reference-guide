@@ -270,6 +270,110 @@ WHERE condition
 GROUP BY column
 HAVING group_condition;
 ```
+- Order of Execution of a Query (Each query begins with finding the data that we need in a database, and then filtering that data down into something that can be processed and understood as quickly as possible)
+```sql
+SELECT DISTINCT column, AGG_FUNC(column_or_expression), …
+FROM mytable
+    JOIN another_table
+      ON mytable.column = another_table.column
+    WHERE constraint_expression
+    GROUP BY column
+    HAVING constraint_expression
+    ORDER BY column ASC/DESC
+    LIMIT count OFFSET COUNT;
+```
+- In SQL, the database schema is what describes the structure of each table, and the datatypes that each column of the table can contain. This fixed structure is what allows a database to be efficient, and consistent despite storing millions or even billions of rows.
+- `INSERT` statement with values for all columns
+```sql
+INSERT INTO mytable
+VALUES (value_or_expr, another_value_or_expr, …),
+       (value_or_expr_2, another_value_or_expr_2, …),
+       …;
+```
+- `INSERT` statement with specific columns (when you have incomplete data and the table contains columns that support default values)
+```sql
+INSERT INTO mytable
+(column, another_column, …)
+VALUES (value_or_expr, another_value_or_expr, …),
+      (value_or_expr_2, another_value_or_expr_2, …),
+      …;
+```
+- `INSERT` statement with expressions (use mathematical and string expressions with the values that you are inserting)
+```sql
+INSERT INTO boxoffice
+(movie_id, rating, sales_in_millions)
+VALUES (1, 9.9, 283742034 / 1000000);
+```
+- `UPDATE` statement with values (takes multiple column/value pairs, and applying those changes to each and every row that satisfies the constraint in the `WHERE` clause)
+```sql
+UPDATE mytable
+SET column = value_or_expr, 
+    other_column = another_value_or_expr, 
+    …
+WHERE condition;
+```
+- NOTE: Always write the constraint first and test it in a `SELECT` query to make sure you are updating the right rows, and only then writing the column/value pairs to update
+- `DELETE` statement with condition (if there is no `WHERE` constraint, then all rows will be removed)
+```sql
+DELETE FROM mytable
+WHERE condition;
+```
+- NOTE: Recommended to run the constraint in a `SELECT` query first to ensure that you are removing the right rows. Without a proper backup or test database, it is downright easy to irrevocably remove data so always read your `DELETE` statements wice and execute once.
+- `CREATE TABLE` statement with optional table constraint and default value
+```sql
+CREATE TABLE IF NOT EXISTS mytable (
+    column DataType TableConstraint DEFAULT default_value,
+    another_column DataType TableConstraint DEFAULT default_value,
+    …
+);
+```
+
+- Table data types
+1. `INTEGER`, `BOOLEAN` = interger can store whole integer values like the count of a number or an age. Boolean value is just represented as an integer value of just 0 or 1
+2. `FLOAT`, `DOUBLE`, `REAL` = floating point datatypes can store more precise numerical data like measurements or fractional values.
+3. `CHARACTER(num_chars)`, `VARCHAR(num_chars)`, `TEXT` = text based datatypes can store strings and text in all sorts of locales. Both the `CHARACTER` and `VARCHAR(variable character)` types are specified with the max number of characters that they can store.
+4. `DATE`, `DATETIME` = SQL can also store data and time stamps to keep track of time series and event data. (Manipulating data across timezones can be tricky)
+5. `BLOB` = SQL can store binary data in blobs right in the database. These values are often opaque to the database, so you usually have to store them with the right metadata to requery them
+
+- Table constraints
+1. `PRIMARY KEY` = Values in this column are unique, and each value can be used to identify a single row in this table
+2. `AUTOINCREMENT` = For integer values, this means that the value is automatically filled in and incremented with each row insertion.
+3. `UNIQUE` = Values in this column have to be unique, so you can't insert another row with the same value in this column as another row in the table. Differs from the `PRIMARY KEY` in that it doesn't have to be a key for a row in the table
+4. `NOT NULL` = Inserted value can not be `NULL`
+5. `CHECK` (expression) = Allows you to run a more complex expression to test whether the values inserted are valid (check that values are positive, or greater than a specific size, or start with a certain prefix, etc)
+6. `FOREIGN KEY` = consisgtency check which ensures that each value in this column corresponds to another value in a column in another table.
+
+- Example table schema
+```sql
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    director TEXT,
+    year INTEGER, 
+    length_minutes INTEGER
+);
+```
+
+- `ALTER TABLE` to add new column(s)
+```sql
+ALTER TABLE mytable
+ADD column DataType OptionalTableConstraint 
+    DEFAULT default_value;
+```
+- `ALTER TABLE` to remove column(s)
+```sql
+ALTER TABLE mytable
+DROP column_to_be_deleted;
+```
+- `ALTER TABLE` to rename table name
+```sql
+ALTER TABLE mytable
+RENAME TO new_table_name;
+```
+- `DROP TABLE IF EXISTS` statement removes an entire table including all of its data and metadata
+```sql
+DROP TABLE IF EXISTS mytable;
+```
 
 ## Additional Resources
 
